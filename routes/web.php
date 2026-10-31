@@ -14,4 +14,6 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::resource('admin/projects', ProjectController::class)->except(['show']);
+Route::resource('admin/projects', ProjectController::class)
+    ->except(['show'])
+    ->middleware('auth.basic');
